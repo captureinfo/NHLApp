@@ -13,6 +13,8 @@
 		A54625F51F8AB7590099963E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54625F41F8AB7590099963E /* Assets.xcassets */; };
 		A54625F81F8AB7590099963E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54625F61F8AB7590099963E /* LaunchScreen.storyboard */; };
 		A54626021F8ABAEE0099963E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A54626011F8ABAEE0099963E /* GoogleService-Info.plist */; };
+		A54626071F8BC7FE0099963E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A54626051F8BC7FE0099963E /* Model.xcdatamodeld */; };
+		A5F4FD1B1F8DB74E0085481B /* Landmark+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F4FD191F8DB74E0085481B /* Landmark+CoreDataClass.swift */; };
 		D9CD38AB80DB4448E2BF9C85 /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F6F32A327461B001DCFD16 /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		A54625F71F8AB7590099963E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A54625F91F8AB7590099963E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A54626011F8ABAEE0099963E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "FinalProject/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A54626061F8BC7FE0099963E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A5F4FD191F8DB74E0085481B /* Landmark+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Landmark+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C4F6F32A327461B001DCFD16 /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89CA109B852609CA35DEF1F /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +76,9 @@
 		A54625EC1F8AB7590099963E /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				A5F4FD191F8DB74E0085481B /* Landmark+CoreDataClass.swift */,
 				A54625ED1F8AB7590099963E /* AppDelegate.swift */,
+				A54626051F8BC7FE0099963E /* Model.xcdatamodeld */,
 				A54625EF1F8AB7590099963E /* ViewController.swift */,
 				A54625F11F8AB7590099963E /* Main.storyboard */,
 				A54625F41F8AB7590099963E /* Assets.xcassets */,
@@ -216,7 +222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54625F01F8AB7590099963E /* ViewController.swift in Sources */,
+				A5F4FD1B1F8DB74E0085481B /* Landmark+CoreDataClass.swift in Sources */,
 				A54625EE1F8AB7590099963E /* AppDelegate.swift in Sources */,
+				A54626071F8BC7FE0099963E /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +395,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A54626051F8BC7FE0099963E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A54626061F8BC7FE0099963E /* Model.xcdatamodel */,
+			);
+			currentVersion = A54626061F8BC7FE0099963E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A54625E21F8AB7590099963E /* Project object */;
 }

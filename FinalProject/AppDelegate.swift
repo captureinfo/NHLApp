@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var ref: DatabaseReference!
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -29,8 +28,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let landmark = landmarksArray[i]
                 let name = (landmark.value as! NSDictionary)["name"] as! String
                 let wikiPage = (landmark.value as! NSDictionary)["wikiPage"] as! String
-                let location = (landmark.value as! NSDictionary)["location"] as! String
+                let lat = (landmark.value as! NSDictionary)["lat"] as! Double
+                let lon = (landmark.value as! NSDictionary)["lon"] as! Double
                 let description = (landmark.value as! NSDictionary)["description"] as! String
+                let managedContext = self.persistentContainer.viewContext
+                let entity = NSEntityDescription.entity(forEntityName: "Landmark", in: managedContext)!
+                let landmarkObject = NSManagedObject(entity:entity, insertInto:managedContext)
+                landmarkObject.setValue(name, forKeyPath:"name")
+                landmarkObject.setValue(wikiPage, forKeyPath:"wikiPage")
+                landmarkObject.setValue(lat, forKeyPath:"lat")
+                landmarkObject.setValue(lon, forKeyPath:"lon")
+                landmarkObject.setValue(description, forKeyPath:"desc")
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
             }
         })
         return true
@@ -70,11 +84,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "FinalProject")
+        let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
                 
                 /*
                  Typical reasons for an error here include:
