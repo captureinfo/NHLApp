@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import CoreData
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSPlacesClient.provideAPIKey("AIzaSyCW40fYtEJ55rVDs3nEMy_jLpxOtDtaOwk")
+        GMSServices.provideAPIKey("AIzaSyCW40fYtEJ55rVDs3nEMy_jLpxOtDtaOwk")
         FirebaseApp.configure()
         
         ref = Database.database().reference()
@@ -39,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 landmarkObject.setValue(lat, forKeyPath:"lat")
                 landmarkObject.setValue(lon, forKeyPath:"lon")
                 landmarkObject.setValue(description, forKeyPath:"desc")
-                
                 do {
                     try managedContext.save()
                 } catch let error as NSError {

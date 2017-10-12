@@ -8,5 +8,7 @@ target 'FinalProject' do
   # Pods for FinalProject
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
 end
