@@ -12,7 +12,7 @@ import CoreData
 import GoogleMaps
 import GooglePlaces
 
-class InitialViewController: UIViewController{
+class InitialViewController: UIViewController {
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -32,8 +32,8 @@ class InitialViewController: UIViewController{
         
         
         resultsViewController = GMSAutocompleteResultsViewController()
-        //resultsViewController?.delegate = self
-        
+        resultsViewController?.delegate = self
+
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
@@ -60,14 +60,23 @@ class InitialViewController: UIViewController{
 }
 
 // Handle the user's selection.
-extension ViewController: GMSAutocompleteResultsViewControllerDelegate {
+extension InitialViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
-        //UISearchController?.isActive = false
+        searchController?.isActive = false
         // Do something with the selected place.
         print("Place name: \(place.name)")
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
+
+        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        view = mapView
+        let currentLocation = CLLocationCoordinate2D(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+        let marker = GMSMarker(position: currentLocation)
+        marker.title = place.name
+        marker.map = mapView
+
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
