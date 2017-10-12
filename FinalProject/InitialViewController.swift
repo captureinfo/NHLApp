@@ -17,16 +17,19 @@ class InitialViewController: UIViewController {
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
+
+    var mapView: GMSMapView!
+    var marker: GMSMarker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GMSServices.provideAPIKey("AIzaSyCW40fYtEJ55rVDs3nEMy_jLpxOtDtaOwk")
         let camera = GMSCameraPosition.camera(withLatitude: 40.759098, longitude: -73.985120, zoom: 10)        
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         let currentLocation = CLLocationCoordinate2D(latitude: 40.759098, longitude: -73.985120)
-        let marker = GMSMarker(position: currentLocation)
+        marker = GMSMarker(position: currentLocation)
         marker.title = "Time Square"
         marker.map = mapView
         
@@ -69,13 +72,11 @@ extension InitialViewController: GMSAutocompleteResultsViewControllerDelegate {
         print("Place address: \(place.formattedAddress)")
         print("Place attributions: \(place.attributions)")
 
-        let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
         let currentLocation = CLLocationCoordinate2D(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
-        let marker = GMSMarker(position: currentLocation)
+        mapView.animate(toLocation: currentLocation)
+        mapView.animate(toZoom: 15)
+        marker.position = currentLocation
         marker.title = place.name
-        marker.map = mapView
 
     }
     
