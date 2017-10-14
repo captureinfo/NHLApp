@@ -12,7 +12,7 @@ import CoreData
 import GoogleMaps
 import GooglePlaces
 
-class InitialViewController: UIViewController, GMSMapViewDelegate{
+class InitialViewController: UIViewController {
 
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -27,12 +27,12 @@ class InitialViewController: UIViewController, GMSMapViewDelegate{
         GMSServices.provideAPIKey("AIzaSyCW40fYtEJ55rVDs3nEMy_jLpxOtDtaOwk")
         let camera = GMSCameraPosition.camera(withLatitude: 40.759098, longitude: -73.985120, zoom: 10)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.delegate = self
         view = mapView
         let currentLocation = CLLocationCoordinate2D(latitude: 40.759098, longitude: -73.985120)
         marker = GMSMarker(position: currentLocation)
         marker.title = "Time Square"
         marker.map = mapView
-
 
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
@@ -84,7 +84,13 @@ class InitialViewController: UIViewController, GMSMapViewDelegate{
             print("could not fetch. \(error), \(error.userInfo)")
         }
     }
+}
 
+extension InitialViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        let url = URL(string: marker.snippet!)
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+    }
 }
 
 // Handle the user's selection.
