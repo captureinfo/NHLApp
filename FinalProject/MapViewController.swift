@@ -1,5 +1,5 @@
 //
-//  InitialViewController.swift
+//  MapViewController.swift
 //  FinalProject
 //
 //  Created by Yang Gao on 10/11/17.
@@ -12,7 +12,7 @@ import CoreData
 import GoogleMaps
 import GooglePlaces
 
-class InitialViewController: UIViewController {
+class MapViewController: UIViewController {
 
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
@@ -86,7 +86,7 @@ class InitialViewController: UIViewController {
     }
 }
 
-extension InitialViewController: GMSMapViewDelegate {
+extension MapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         let url = URL(string: marker.snippet!)
         UIApplication.shared.open(url!, options: [:], completionHandler: nil)
@@ -94,7 +94,7 @@ extension InitialViewController: GMSMapViewDelegate {
 }
 
 // Handle the user's selection.
-extension InitialViewController: GMSAutocompleteResultsViewControllerDelegate {
+extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false

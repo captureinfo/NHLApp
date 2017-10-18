@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var ref: DatabaseReference!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.persistentContainer.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         // Override point for customization after application launch.
         GMSPlacesClient.provideAPIKey("AIzaSyCW40fYtEJ55rVDs3nEMy_jLpxOtDtaOwk")
         GMSServices.provideAPIKey("AIzaSyCW40fYtEJ55rVDs3nEMy_jLpxOtDtaOwk")
