@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A531FD2A1F95142F00490D49 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531FD291F95142F00490D49 /* TableViewController.swift */; };
 		A531FD2C1F9535E800490D49 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531FD2B1F9535E800490D49 /* TableViewCell.swift */; };
+		A531FD2E1F9841CB00490D49 /* LandmarkDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A531FD2D1F9841CB00490D49 /* LandmarkDataService.swift */; };
 		A54625EE1F8AB7590099963E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54625ED1F8AB7590099963E /* AppDelegate.swift */; };
 		A54625F01F8AB7590099963E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54625EF1F8AB7590099963E /* ViewController.swift */; };
 		A54625F31F8AB7590099963E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54625F11F8AB7590099963E /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		543BB95121122F40BFCA2B25 /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A531FD291F95142F00490D49 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A531FD2B1F9535E800490D49 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A531FD2D1F9841CB00490D49 /* LandmarkDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandmarkDataService.swift; sourceTree = "<group>"; };
 		A54625EA1F8AB7590099963E /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54625ED1F8AB7590099963E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A54625EF1F8AB7590099963E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				A54625F11F8AB7590099963E /* Main.storyboard */,
 				A531FD2B1F9535E800490D49 /* TableViewCell.swift */,
 				A531FD291F95142F00490D49 /* TableViewController.swift */,
+				A531FD2D1F9841CB00490D49 /* LandmarkDataService.swift */,
 				A5F4FD1D1F8E7BEF0085481B /* MapViewController.swift */,
 				A54625F41F8AB7590099963E /* Assets.xcassets */,
 				A54625F61F8AB7590099963E /* LaunchScreen.storyboard */,
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F4FD1E1F8E7BEF0085481B /* MapViewController.swift in Sources */,
+				A531FD2E1F9841CB00490D49 /* LandmarkDataService.swift in Sources */,
 				A531FD2A1F95142F00490D49 /* TableViewController.swift in Sources */,
 				A54625F01F8AB7590099963E /* ViewController.swift in Sources */,
 				A5F4FD1B1F8DB74E0085481B /* Landmark+CoreDataClass.swift in Sources */,

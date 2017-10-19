@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0a-8c-Uyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="87"/>
+            <point key="canvasLocation" x="346" y="206"/>
         </scene>
         <!--MapView-->
         <scene sceneID="tne-QT-ifu">
@@ -41,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-196"/>
+            <point key="canvasLocation" x="962" y="-187"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qYg-Zk-vQp">
@@ -112,7 +112,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIz-gN-X6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="-901"/>
+            <point key="canvasLocation" x="852" y="-935"/>
         </scene>
     </scenes>
 </document>
