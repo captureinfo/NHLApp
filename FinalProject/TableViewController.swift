@@ -16,6 +16,8 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
 
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
+    var indicator = UIActivityIndicatorView()
+
     fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Landmark> = {
         // Create Fetch Request
         let fetchRequest: NSFetchRequest<Landmark> = Landmark.fetchRequest()
@@ -32,9 +34,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         return fetchedResultsController
     }()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    func loadData() {
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
@@ -45,7 +45,23 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         self.tableView.reloadData()
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        LandmarkDataService.sharedInstance.loadData {
+            self.loadData()
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
+        }
 
+        self.loadData()
+
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.white
+    }
 
     // MARK: - Table view data source
 

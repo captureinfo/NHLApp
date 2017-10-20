@@ -20,7 +20,7 @@ class LandmarkDataService {
 
     var persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
-    func loadData() {
+    func loadData(callback: @escaping (Void) -> Void) {
         ref = Database.database().reference()
         ref.observe(DataEventType.value, with: { (snapshot) in
             let landmarks = snapshot.childSnapshot(forPath: "landmarks")
@@ -45,6 +45,8 @@ class LandmarkDataService {
                 } catch let error as NSError {
                     print("Could not save. \(error), \(error.userInfo)")
                 }
+
+                callback()
             }
         })
     }
