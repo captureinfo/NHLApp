@@ -10,7 +10,28 @@ import UIKit
 import CoreData
 
 
-class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+        searchTextField.resignFirstResponder()
+            
+        }
+    }
+    var searchText: String? {
+        didSet {
+            searchTextField.text = searchText
+
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == searchTextField {
+            searchText = searchTextField.text
+        }
+        return true
+    }
 
     var landmarks = [Landmark]()
 
@@ -47,6 +68,9 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = tableView.rowHeight
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 15.0
         LandmarkDataService.sharedInstance.loadData {
             self.loadData()
             self.indicator.stopAnimating()

@@ -9,10 +9,11 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
 
-    @IBOutlet weak var subtitle: UILabel!
 
+    @IBOutlet weak var title: UITextField!
+    
+    @IBOutlet weak var subtitle: UITextView!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     static let reuseIdentifier = "LandmarkCell"
