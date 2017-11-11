@@ -21,6 +21,27 @@ class LandmarkDataService {
     var persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
 
     func loadData(callback: @escaping (Void) -> Void) {
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+
+        // The connection to Firebase at the begining is not stable, so if it's not yet connected,
+        // wait a period of time and check again to see if it's truly unreachable
+        connectedRef.observeSingleEvent(of: .value, with: { snapshot in
+            if (snapshot.value as? Bool) == false {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                    connectedRef.observeSingleEvent(of: .value, with: { snapshot in
+                        if (snapshot.value as? Bool) == false {
+                            let alert = UIAlertView()
+                            alert.title = "Alert"
+                            alert.message = "Can not update data right now, please try again later"
+                            alert.addButton(withTitle: "Understood")
+                            alert.show()
+                        }
+                    })
+                })
+            }
+        })
+
+
         ref = Database.database().reference()
         ref.observe(DataEventType.value, with: { (snapshot) in
             let landmarks = snapshot.childSnapshot(forPath: "landmarks")

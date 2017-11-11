@@ -11,7 +11,7 @@
             <objects>
                 <navigationController id="lPr-js-8wz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MapView" id="poO-Lw-yoT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HQS-7Y-cng">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HQS-7Y-cng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -81,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="122" width="375" height="237"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M8w-sq-HqK" id="RJf-1b-LAH">
-                                    <frame key="frameInset" width="375" height="236"/>
+                                    <frame key="frameInset" width="375" height="236.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzW-CG-Bcv">
@@ -129,7 +129,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TQb-UD-BST" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="TableView" id="kow-0j-br8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U2Q-tP-45P">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2Q-tP-45P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

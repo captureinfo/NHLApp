@@ -71,6 +71,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         tableView.estimatedRowHeight = tableView.rowHeight
         //tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 15.0
+
         LandmarkDataService.sharedInstance.loadData {
             self.loadData()
             self.indicator.stopAnimating()
