@@ -72,11 +72,22 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 15.0
 
-        LandmarkDataService.sharedInstance.loadData {
-            self.loadData()
-            self.indicator.stopAnimating()
-            self.indicator.hidesWhenStopped = true
-        }
+        LandmarkDataService.sharedInstance.loadData(
+            callback: {
+                self.loadData()
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+            },
+            failureCallback: {
+                let alert = UIAlertView()
+                alert.title = "Alert"
+                alert.message = "Can not update data right now, please try again later"
+                alert.addButton(withTitle: "Understood")
+                alert.show()
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+        });
+
 
         self.loadData()
 
