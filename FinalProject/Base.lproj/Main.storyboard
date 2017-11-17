@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,7 +12,7 @@
             <objects>
                 <navigationController id="lPr-js-8wz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MapView" id="poO-Lw-yoT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HQS-7Y-cng">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HQS-7Y-cng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -77,33 +78,40 @@
                             <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="search"/>
                         </textField>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LandmarkCell" rowHeight="237" id="M8w-sq-HqK" customClass="TableViewCell" customModule="FinalProject">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LandmarkCell" id="M8w-sq-HqK" customClass="TableViewCell" customModule="FinalProject">
                                 <rect key="frame" x="0.0" y="122" width="375" height="237"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M8w-sq-HqK" id="RJf-1b-LAH">
-                                    <frame key="frameInset" width="375" height="236.5"/>
+                                    <frame key="frameInset" width="375" height="236"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzW-CG-Bcv">
-                                            <frame key="frameInset" minY="8" width="375" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwu-h5-NXn">
+                                            <frame key="frameInset" width="375" height="46"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RQ7-HD-JH7">
-                                            <frame key="frameInset" minX="8" minY="46" width="359" height="176"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pe5-E1-RCB">
+                                            <frame key="frameInset" minY="46" width="375" height="190"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pe5-E1-RCB" firstAttribute="leading" secondItem="RJf-1b-LAH" secondAttribute="leadingMargin" id="IcY-Du-EPJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="pe5-E1-RCB" secondAttribute="bottom" id="JQk-56-7tv"/>
+                                        <constraint firstItem="pwu-h5-NXn" firstAttribute="leading" secondItem="RJf-1b-LAH" secondAttribute="leadingMargin" id="ODF-ij-UWM"/>
+                                        <constraint firstItem="pe5-E1-RCB" firstAttribute="top" secondItem="pwu-h5-NXn" secondAttribute="bottom" id="P4K-F9-5Sy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pe5-E1-RCB" secondAttribute="trailing" id="bch-Sx-5zG"/>
+                                        <constraint firstItem="pwu-h5-NXn" firstAttribute="top" secondItem="RJf-1b-LAH" secondAttribute="topMargin" id="iPg-6v-Rbb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pwu-h5-NXn" secondAttribute="trailing" id="mvU-Lw-RUR"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="subtitle" destination="RQ7-HD-JH7" id="7oa-9R-0to"/>
-                                    <outlet property="title" destination="uzW-CG-Bcv" id="8Gf-8d-5ml"/>
+                                    <outlet property="subtitle" destination="pe5-E1-RCB" id="0oL-RR-LZD"/>
+                                    <outlet property="title" destination="pwu-h5-NXn" id="OcV-p1-q4M"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -129,7 +137,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TQb-UD-BST" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="TableView" id="kow-0j-br8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2Q-tP-45P">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="U2Q-tP-45P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

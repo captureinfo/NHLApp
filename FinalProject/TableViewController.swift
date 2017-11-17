@@ -69,7 +69,7 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = tableView.rowHeight
-        //tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 15.0
 
         LandmarkDataService.sharedInstance.loadData {
