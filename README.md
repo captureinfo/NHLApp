@@ -13,7 +13,7 @@ First, clone the app to a local directory:
 
 ```
 mkdir NHLApp
-git clone https://github.com/y4a6n8g/finalproject.git
+git clone https://github.com/y4a6n8g/NHLApp.git
 ```
 
 Open the app in XCode, and run. All the dependecies are included in this repository so no other commands are needed!
